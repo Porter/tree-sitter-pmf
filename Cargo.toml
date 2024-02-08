@@ -4,7 +4,7 @@ description = "pmf grammar for the tree-sitter parsing library"
 version = "0.0.1"
 keywords = ["incremental", "parsing", "pmf"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-pmf"
+repository = "https://github.com/Porter/tree-sitter-pmf"
 edition = "2018"
 license = "MIT"
 
