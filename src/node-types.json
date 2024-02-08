@@ -1,0 +1,135 @@
+[
+  {
+    "type": "category",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "data",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "date",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mmddyyyy",
+          "named": true
+        },
+        {
+          "type": "yyyymmdd",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "amount",
+          "named": true
+        },
+        {
+          "type": "category",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "rest_of_line_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mmddyyyy",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "positive_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "rest_of_line_string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data",
+          "named": true
+        },
+        {
+          "type": "positive_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "yyyymmdd",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "POSITIVE_BAD",
+    "named": false
+  },
+  {
+    "type": "POSITIVE_GOOD",
+    "named": false
+  },
+  {
+    "type": "amount",
+    "named": true
+  }
+]
