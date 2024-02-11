@@ -189,7 +189,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "(\\w+ ?)+"
+          "value": "(\\S+ ?)+"
         },
         {
           "type": "REPEAT",
@@ -202,7 +202,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "(\\w+ ?)+"
+                "value": "(\\S+ ?)+"
               }
             ]
           }

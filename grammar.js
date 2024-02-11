@@ -34,8 +34,8 @@ module.exports = grammar({
     ),
 
     category: $ => seq(
-      /(\w+ ?)+/,
-      repeat(seq(">", /(\w+ ?)+/)),
+      /(\S+ ?)+/,
+      repeat(seq(">", /(\S+ ?)+/)),
     ),
   }
 });
