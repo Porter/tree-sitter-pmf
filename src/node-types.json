@@ -1,5 +1,24 @@
 [
   {
+    "type": "balance",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "amount",
+          "named": true
+        },
+        {
+          "type": "balance_str",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "category",
     "named": true,
     "fields": {}
@@ -13,7 +32,11 @@
       "required": true,
       "types": [
         {
-          "type": "line",
+          "type": "balance",
+          "named": true
+        },
+        {
+          "type": "transaction",
           "named": true
         }
       ]
@@ -33,33 +56,6 @@
         },
         {
           "type": "yyyymmdd",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "line",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "amount",
-          "named": true
-        },
-        {
-          "type": "category",
-          "named": true
-        },
-        {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "rest_of_line_string",
           "named": true
         }
       ]
@@ -100,6 +96,33 @@
     }
   },
   {
+    "type": "transaction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "amount",
+          "named": true
+        },
+        {
+          "type": "category",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "rest_of_line_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "yyyymmdd",
     "named": true,
     "fields": {}
@@ -130,6 +153,10 @@
   },
   {
     "type": "amount",
+    "named": true
+  },
+  {
+    "type": "balance_str",
     "named": true
   }
 ]

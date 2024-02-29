@@ -48,8 +48,17 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "line"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "transaction"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "balance"
+              }
+            ]
           },
           {
             "type": "CHOICE",
@@ -66,7 +75,7 @@
         ]
       }
     },
-    "line": {
+    "transaction": {
       "type": "SEQ",
       "members": [
         {
@@ -208,6 +217,23 @@
           }
         }
       ]
+    },
+    "balance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "balance_str"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "amount"
+        }
+      ]
+    },
+    "balance_str": {
+      "type": "STRING",
+      "value": "BALANCE "
     }
   },
   "extras": [

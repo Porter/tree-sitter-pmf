@@ -7,11 +7,14 @@ module.exports = grammar({
     positive_statement: $ => choice("POSITIVE_GOOD", "POSITIVE_BAD"),
 
     data: $ => repeat1(seq(
-      $.line,
+      choice(
+	$.transaction,
+	$.balance,
+      ),
       optional("\n"),
     )),
 
-    line: $ => seq(
+    transaction: $ => seq(
       $.date,
       repeat1(" "),
       $.amount,
@@ -37,5 +40,11 @@ module.exports = grammar({
       /(\S+ ?)+/,
       repeat(seq(">", /(\S+ ?)+/)),
     ),
+
+    balance: $ => seq(
+      $.balance_str,
+      $.amount,
+    ),
+    balance_str: $ => "BALANCE ",
   }
 });
