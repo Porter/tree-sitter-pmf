@@ -83,39 +83,34 @@
           "name": "date"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "STRING",
-            "value": " "
-          }
+          "type": "SYMBOL",
+          "name": "_sep"
         },
         {
           "type": "SYMBOL",
           "name": "amount"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "STRING",
-            "value": " "
-          }
+          "type": "SYMBOL",
+          "name": "_sep"
         },
         {
           "type": "SYMBOL",
           "name": "category"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "STRING",
-            "value": " "
-          }
+          "type": "SYMBOL",
+          "name": "_sep"
         },
         {
           "type": "SYMBOL",
           "name": "rest_of_line_string"
         }
       ]
+    },
+    "_sep": {
+      "type": "PATTERN",
+      "value": " +"
     },
     "date": {
       "type": "CHOICE",
@@ -181,8 +176,58 @@
       ]
     },
     "amount": {
-      "type": "PATTERN",
-      "value": "-?\\d*\\.?\\d?\\d?"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "-?(\\d+\\.?\\d*|\\.\\d+)"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "-?(\\d+\\.?\\d*|\\.\\d+) [A-Z][A-Z0-9]*(\\.[A-Z0-9]+)? "
+            }
+          }
+        }
+      ]
+    },
+    "balance_amount": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "-?(\\d+\\.?\\d*|\\.\\d+)"
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "PATTERN",
+              "value": "-?(\\d+\\.?\\d*|\\.\\d+) [A-Z][A-Z0-9]*(\\.[A-Z0-9]+)?"
+            }
+          }
+        }
+      ]
     },
     "rest_of_line_string": {
       "type": "CHOICE",
@@ -222,18 +267,56 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "date"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_sep"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "balance_str"
         },
         {
-          "type": "SYMBOL",
-          "name": "amount"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_sep"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "balance_amount"
+          },
+          "named": true,
+          "value": "amount"
         }
       ]
     },
     "balance_str": {
       "type": "STRING",
-      "value": "BALANCE "
+      "value": "BALANCE"
     }
   },
   "extras": [
@@ -248,4 +331,3 @@
   "inline": [],
   "supertypes": []
 }
-
